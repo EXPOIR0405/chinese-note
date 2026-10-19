@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>중국어 복습노트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+SC:wght@500;700&family=Noto+Sans:wght@500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="brand"><span class="hz">复习</span><h1>중국어 복습노트</h1></div>
+    <div class="legend">
+      <span style="--c:var(--t1)">1성</span><span style="--c:var(--t2)">2성</span><span style="--c:var(--t3)">3성</span><span style="--c:var(--t4)">4성</span><span style="--c:var(--t0)">경성</span>
+    </div>
+  </div>
+
+  <nav role="tablist" id="tabs">
+    <button role="tab" data-tab="today" aria-selected="true">오늘의 복습</button>
+    <button role="tab" data-tab="sound">발음</button>
+    <button role="tab" data-tab="cards">단어 카드</button>
+    <button role="tab" data-tab="quiz">성조 퀴즈</button>
+    <button role="tab" data-tab="culture">문화 노트</button>
+    <button role="tab" data-tab="log">수업 기록</button>
+  </nav>
+
+  <section id="today">
+    <div class="grid2">
+      <div class="card">
+        <span class="label">다음 수업까지</span>
+        <div class="dday" id="dday">-</div>
+        <p class="empty" id="nextInfo"></p>
+      </div>
+      <div class="card name-card">
+        <span class="label">내 중국어 이름</span>
+        <div class="row"><span class="hz">旻定</span><button class="speak" data-say="旻定" aria-label="내 이름 듣기"></button></div>
+        <div class="py"><span class="s2">Mín</span> <span class="s4">Dìng</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <span class="label" id="lastLabel">지난 수업 요약</span>
+      <p id="lastSummary"></p>
+    </div>
+    <div class="card">
+      <div class="row spread"><span class="label">헷갈린다고 표시한 단어</span><span class="chip warn" id="weakCount">0개</span></div>
+      <div id="weakList"></div>
+    </div>
+  </section>
+
+  <section id="sound" hidden>
+    <div class="card">
+      <span class="label">성조 4개 · 음높이 1(낮음)~5(높음)</span>
+      <div class="tones" id="tones"></div>
+      <div id="tips" style="display:grid;gap:8px"></div>
+    </div>
+    <div class="card">
+      <div class="row spread"><span class="label">성모 (앞소리)</span><span class="chip" id="iniCount"></span></div>
+      <div class="cells" id="initials"></div>
+    </div>
+    <div class="card">
+      <div class="row spread"><span class="label">운모 (뒷소리)</span><span class="chip" id="finCount"></span></div>
+      <div id="finals" style="display:grid;gap:6px"></div>
+    </div>
+    <div class="card">
+      <span class="label">헷갈리기 쉬운 발음 비교</span>
+      <div id="pairs" style="display:grid;gap:14px"></div>
+    </div>
+  </section>
+
+  <section id="cards" hidden>
+    <div class="filter" id="cardFilter"></div>
+    <div class="flash" id="flash">
+      <div class="flash-inner" tabindex="0" role="button" aria-label="카드 뒤집기">
+        <div class="face front"><div class="hz" id="fHz"></div><span class="hint">눌러서 뒤집기</span></div>
+        <div class="face back"><div><div class="py" id="fPy"></div><div class="ko" id="fKo"></div></div><span class="hint">눌러서 다시 보기</span></div>
+      </div>
+    </div>
+    <div class="count" id="fCount"></div>
+    <div class="controls">
+      <button class="btn" id="prev">이전</button>
+      <button class="btn" id="fSpeak">🔊 듣기</button>
+      <button class="btn" id="fWeak">헷갈려요</button>
+      <button class="btn primary" id="next">다음</button>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="card">
+      <div class="quiz-q">
+        <span class="label">소리를 듣고 몇 성인지 고르세요</span>
+        <button class="quiz-play" id="qPlay" aria-label="소리 듣기"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+        <span class="py" id="qSyl" style="font-size:20px;color:var(--muted)">?</span>
+      </div>
+      <div class="answers" id="answers">
+        <button data-t="1" class="s1">1성</button><button data-t="2" class="s2">2성</button><button data-t="3" class="s3">3성</button><button data-t="4" class="s4">4성</button>
+      </div>
+      <div class="feedback" id="qFb"></div>
+      <div class="controls"><button class="btn primary" id="qNext">다음 문제</button></div>
+      <div class="score" id="qScore">0 / 0</div>
+    </div>
+    <p class="voice-note" id="voiceNote">소리는 브라우저에 내장된 중국어 음성으로 나와요.</p>
+  </section>
+
+  <section id="culture" hidden>
+    <div class="grid2" id="cultureList"></div>
+  </section>
+
+  <section id="log" hidden>
+    <div class="card" id="timeline"></div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
