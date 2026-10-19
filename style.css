@@ -45,7 +45,7 @@ nav button[aria-selected="true"] { color: var(--ink); font-weight: 600; border-b
 section { display: grid; gap: 16px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 12px; min-width: 0; align-content: start; }
 .label { font-size: 12px; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
-.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 16px; }
 .empty { color: var(--muted); font-size: 14px; }
 
 .py { font-family: var(--f-py); font-weight: 600; }
@@ -133,3 +133,12 @@ section { display: grid; gap: 16px; }
 .lesson .sum { font-size: 14px; color: var(--muted); margin-top: 4px; }
 .voice-note { font-size: 12px; color: var(--muted); text-align: center; }
 @media (prefers-reduced-motion: reduce) { .flash-inner { transition: none; } }
+
+.culture.wide { grid-column: 1 / -1; }
+.cuisines { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 10px; }
+.cuisine { background: var(--soft); border-radius: 10px; padding: 12px; display: grid; gap: 6px; min-width: 0; }
+.cuisine .row { gap: 8px; flex-wrap: wrap; }
+.cuisine .hz { font-size: 20px; }
+.cuisine p { font-size: 13px; }
+.cuisine .dish { color: var(--muted); }
+.cuisine .dish .hz { font-size: 14px; }

@@ -190,8 +190,9 @@ function setupQuiz() {
 }
 
 // ---- 문화 노트 / 수업 기록 ----
+const cuisineTable = (rows) => `<div class="cuisines">${rows.map((x) => `<div class="cuisine"><div class="row"><span class="hz">${x.hz}</span><span class="py" style="color:var(--muted)">${x.py}</span><span class="chip">${x.region}</span>${x.big4 ? `<span class="chip warn">4대</span>` : ""}<span style="flex:1"></span>${speakBtn(x.hz, x.region + " 요리")}</div><p>${x.taste}</p><p class="dish"><span class="hz">${x.dish}</span></p></div>`).join("")}</div>`;
 function renderCulture() {
-  $("#cultureList").innerHTML = [...D.culture].reverse().map((c) => `<div class="card culture"><div class="row"><span class="hz">${c.hz}</span><span class="py" style="color:var(--muted);flex:1;min-width:0">${c.py}</span>${speakBtn(c.hz, c.title)}</div><h3>${c.title}</h3><p>${c.body}</p>${c.check ? `<p class="check">${c.check}</p>` : ""}<span class="chip" style="justify-self:start">${c.lesson}차시</span></div>`).join("");
+  $("#cultureList").innerHTML = [...D.culture].reverse().map((c) => `<div class="card culture${c.wide ? " wide" : ""}"><div class="row"><span class="hz">${c.hz}</span><span class="py" style="color:var(--muted);flex:1;min-width:0">${c.py}</span>${speakBtn(c.hz, c.title)}</div><h3>${c.title}</h3><p>${c.body}</p>${c.table ? cuisineTable(c.table) : ""}${c.check ? `<p class="check">${c.check}</p>` : ""}<div class="row" style="gap:6px"><span class="chip">${c.lesson}차시</span>${c.extra ? `<span class="chip">Claude 보충</span>` : ""}</div></div>`).join("");
 }
 function renderLog() {
   $("#timeline").innerHTML = [...D.lessons].reverse().map((l) => {
