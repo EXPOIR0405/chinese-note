@@ -205,7 +205,6 @@ function renderLog() {
 }
 
 load().then(() => {
-  document.querySelectorAll(".name-card .speak").forEach((b) => (b.innerHTML = SPK));
   renderToday();
   renderSound();
   setupCards();
