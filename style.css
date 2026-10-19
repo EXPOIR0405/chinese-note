@@ -66,6 +66,8 @@ section { display: grid; gap: 16px; }
 .chip.warn { background: color-mix(in srgb, var(--t1) 14%, transparent); color: var(--t1); }
 
 .dday { font-size: 34px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.name-card .hz { font-size: 40px; font-weight: 700; letter-spacing: 4px; }
+.name-card .py { font-size: 20px; }
 
 .tones { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
 .tone { text-align: center; display: grid; gap: 4px; justify-items: center; }
