@@ -94,13 +94,13 @@ section { display: grid; gap: 16px; }
 .filter button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
 .flash { perspective: 1000px; }
-.flash-inner { position: relative; height: 240px; transition: transform .5s; transform-style: preserve-3d; cursor: pointer; }
+.flash-inner { position: relative; height: 280px; transition: transform .5s; transform-style: preserve-3d; cursor: pointer; }
 .flash.flipped .flash-inner { transform: rotateY(180deg); }
 .face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); display: grid; place-items: center; text-align: center; padding: 16px; }
 .face.back { transform: rotateY(180deg); }
 .face .hz { font-size: clamp(40px, 12vw, 64px); line-height: 1.2; }
 .face .hint { position: absolute; bottom: 12px; font-size: 12px; color: var(--muted); }
-.face .py { font-size: 26px; }
+.face .py { font-size: clamp(18px, 5.5vw, 26px); }
 .face .ko { font-size: 16px; margin-top: 4px; }
 .controls { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 .btn { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 8px 14px; font-size: 14px; }

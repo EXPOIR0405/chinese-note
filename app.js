@@ -129,12 +129,14 @@ function renderCard() {
   const w = deck[fi];
   if (!w) {
     $("#fHz").textContent = "카드가 없어요";
-    $("#fPy").textContent = ""; $("#fKo").textContent = ""; $("#fCount").textContent = "0 / 0";
+    $("#fPy").textContent = ""; $("#fKo").textContent = ""; $("#fNote").hidden = true; $("#fCount").textContent = "0 / 0";
     return;
   }
   $("#fHz").textContent = w.hz;
   $("#fPy").innerHTML = pyHtml(w.syl);
   $("#fKo").textContent = w.ko;
+  $("#fNote").textContent = w.note || "";
+  $("#fNote").hidden = !w.note;
   $("#fCount").textContent = `${fi + 1} / ${deck.length} · ${w.lesson}차시${w.tag ? " · " + w.tag : ""}`;
   $("#fWeak").classList.toggle("on", weak.includes(w.hz));
 }
